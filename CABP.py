@@ -10,7 +10,7 @@ How to use:
 This application relies to have a USB drive (FAT32 formatted) labeled as "BOOK". On that USB drive
 it takes all mp3 files that are in the "MP3" folder. Within that folder file structure does not matter, 
 I recommend to have each Audiobook in its own folder. 
-Remove all special characters and spaces from the names of the folders and filenames (éáűőúöüó letters included). 
+Remove all special characters and spaces from the names of the folders and filenames.
 
 When the application started for the first time it looks for a playlist file (playlist.mcz) if it does not 
 find it, creates it. At this point it makes sense to take a look into the created list file, to manually make sure
