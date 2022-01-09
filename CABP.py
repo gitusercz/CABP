@@ -48,6 +48,7 @@ mp3folder = "/media/pi/BOOK/MP3"
 mp3list = "/media/pi/BOOK/MP3/playlist.mcz"
 mp3list_orig = "/media/pi/BOOK/MP3/playlist_orig.mcz"
 logfile_path = "/media/pi/BOOK/logfile.txt"
+time.sleep(20)
 
 print("\n\n AudioPlayer started!")
 with open(logfile_path,"a") as logfile:
@@ -82,7 +83,8 @@ lines = open(mp3list, 'r').readlines()
 while True: 
 	with open(logfile_path,"a") as logfile:
 		logfile.write(strftime("%Y-%m-%d %H:%M:%S")+",Attempting to play: " + lines[0])
-	os.system("nvlc --play-and-exit " + lines[0])
+#	os.system("nvlc --play-and-exit " + lines[0])
+	os.system("mpg123 " + lines[0])
 	with open(logfile_path,"a") as logfile:
 		logfile.write(strftime("%Y-%m-%d %H:%M:%S")+",Playing finished\n")
 	lines.pop(0)
