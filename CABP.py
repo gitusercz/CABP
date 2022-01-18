@@ -42,17 +42,44 @@ import os
 button_delay = 1.0		# needed for debouncing and spawning a lot of os.system calls.
 list_pointer = 0
 cmd = ""				# command to be executed
+bookfolder_found = False
+bookfolder_counter = 1
 
 # Path definitions
 mp3folder = "/media/pi/BOOK/MP3"
 mp3list = "/media/pi/BOOK/MP3/playlist.mcz"
 mp3list_orig = "/media/pi/BOOK/MP3/playlist_orig.mcz"
 logfile_path = "/media/pi/BOOK/logfile.txt"
+basepath = "/media/pi/BOOK"
 time.sleep(20)
+
+#Check if USB got mounted to "/media/pi/BOOK"
+if os.path.isdir(basepath + str(bookfolder_counter)) == True:
+	print("\nFolder found")
+	print(logfile_path)
+	bookfolder_found = True
+	mp3folder = basepath + "/MP3"
+	mp3list = basepath + "/playlist.mcz"
+	mp3list_orig = basepath + "/playlist_orig.mcz"
+	logfile_path = basepath + "/logfile.txt"
+
+# By this time if bookfolder_found is still False it means the USB got mounted to BOOK# folder. This section iterates to find it. It stops after BOOK999
+while ((bookfolder_found == False) and (bookfolder_counter < 999)):
+	if os.path.isdir(basepath + str(bookfolder_counter)) == True:
+		print("\nFolder found")
+		print(logfile_path + str(bookfolder_counter))
+		bookfolder_found = True
+		mp3folder = basepath + str(bookfolder_counter) + "/MP3"
+		mp3list = basepath + str(bookfolder_counter) + "/playlist.mcz"
+		mp3list_orig = basepath + str(bookfolder_counter) + "/playlist_orig.mcz"
+		logfile_path = basepath + str(bookfolder_counter) + "/logfile.txt"
+	else:
+		print("\nFolder does not exists")
+		bookfolder_counter += 1
 
 print("\n\n AudioPlayer started!")
 with open(logfile_path,"a") as logfile:
-	logfile.write(strftime("%Y-%m-%d %H:%M:%S")+",AudioPlayer started!\n")
+	logfile.write(strftime("\n\n" + "%Y-%m-%d %H:%M:%S")+",AudioPlayer started!\n")
 
 if (not(os.path.exists(mp3list))):
 	list_of_files = []
