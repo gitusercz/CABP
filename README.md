@@ -21,7 +21,17 @@ Application keeps a spare playlist file (original) to make it easier to set the 
 For further information, please read the READ.ME or contact czibere.a@gmail.com
 
 ## 3. Technical details
-## 4. Possible updates
+### 3.1 Removing special characters
+To remove special characters I have used Antrenamer2. With this tool I was able to replace spaces with underscores and replace áéíóüö characters, so python can handle the paths. 
+
+![Suitcase](/resources/Renaming_scheme.png)
+## 4. Implementation (bringing to life)
+This setup needs to be easy to use and compact, so I have looked up an extension power cord and an old PC loudspeaker with 3.5 mm jack and put them into an old suitcase. 
+![Suitcase](/resources/suitcase01.jpg)
+
+But as I said grandmother only able to sit up with assistance, some fellow old lady robes her blind. She takes away food from her table, etc. So some "access protection" is applied on the Audiobook player setup. 
+![Suitcase](/resources/suitcase02.jpg)
+## 5. Possible updates
 
 Best regards, 
 Attila Czibere
