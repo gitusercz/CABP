@@ -6,7 +6,7 @@ My grandmother (92) lying in a retirement home is really in a bad shape. She sta
 I decided to build an AudioBook player that is so simple it has no controls and runs on a Raspberry Pi. The whole setup has a switchable power socket. When it is plugged in Book continues from where it was left off, when unplugged stops. 
 
 ## 2.About CABP.py
-This application is an audiobook player relying on command line mpg123 to play pre-collected list of mp3 files. This python script made to autostart on RaspberryPi power on it takes the last played mp3 and continues playing from the beginning of that last mp3. 
+This application is an audiobook player relying on command line mpg123 to play pre-collected list of mp3 files. This python script made as autostart on RaspberryPi. After power on it takes the last played mp3 and continues playing from the beginning of that last mp3. 
 
 ### How to use: 
 Pre-copied mp3 files are picked up from "/home/pi/Music/MP3". Within that folder file structure does not matter, I recommend to have each Audiobook in its own folder. 
@@ -39,7 +39,7 @@ But as I said grandmother only able to sit up with assistance, some fellow old l
 
 ## 5. Possible updates
 ### 5.1 Running from an USB stick
-There were another "feature letting go" moment during creation. Initially the logfiles, mcz playlists and the MP3 files were supposed to sit on a FAT32 formatted USB drive in the MP3 folder. The files were located in the "media\BOOK\MP3" folder if the USB drive is labelled "BOOK". This solution works 99% of the time. But as it turned out if you do not properly dismount the USB drive, next bootup it might show up in the folder "media\BOOK1\MP3". Then as "media\BOOK3\MP3" and so on. I never reached numberings higher than BOOK1, but I experienced this symptom too. CABP.py has this issue figured out, but to make the application safer to use, I decided to give up on using the USB drive and move all the books to the SD card. 
+There were another "feature letting go" moment during creation. Initially the logfiles, mcz playlists and the MP3 files were supposed to sit on a FAT32 formatted USB drive in the MP3 folder. The files were located in the "media\BOOK\MP3" folder if the USB drive is labelled "BOOK". This solution works 99% of the time. But as it turned out if you do not properly dismount the USB drive, next bootup it might show up in the folder "media\BOOK1\MP3". Then as "media\BOOK2\MP3" and so on. I never reached numberings higher than BOOK1, but I experienced this symptom too. CABP.py has this issue figured out, but to make the application safer to use, I gave up on using the USB drive and move all the books to the SD card. (Time to market was extremely important!)
 
 ### 5.2 Real continuous playback
 With multithread solution it could be tracked how along playing the current mp3 is. Then on next bootup nvlc could seek there. It is left to be figured out how to make nvlc start after boot. 
@@ -48,3 +48,4 @@ With multithread solution it could be tracked how along playing the current mp3 
 Best regards, 
 Attila Czibere
 2022-01-04
+czibere.a@gmail.com
